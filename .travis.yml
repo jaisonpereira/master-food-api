@@ -5,7 +5,7 @@ addons:
   sonarcloud:
     organization: jaisonpereira-github
     token:
-      secure: bRkognZPl8aDCEjlc37Rr6fEHnKj5X2Yb+wm+BhFDsYo97DY/KVb4lF/9yIcsO/ftoXKo0+cIQ7HFEQWkxF9DY84wQOvlni4Sh4tm8eJW+o3RyPo6nxXmdfj2B7WuiFs2JtCOvydyfwSiRbw1SD2k2p1LNh0PS65q6TPsPElUg6KOnDWEQoQH92Tek8LBoJamhlwVopSFJUiVt2wn8a/vcQ4snsKGbSKocGYns5PqqTeBTI/Vw1CFTMknv+NAlO03ZsLouQMss5BTiOP1qTX5R8xFm3vxtub4LcV5hosh/ZMQMjZw0xLpL2eIJFvqppVXfO7jt7izxH/FcnnP/MtcxTwd1t05kk1ot/01j5hb3QrXbSMKM4tbbJEpo4IXn/sc7Mjo7tOXWbz1Sw0XU5WxGZ8r213R2fjB3QKcj2rq17xhSPFQSjjNtWL5N5JCRPqB/5QBF22SQw4QHr3b/EMRTYyNdnLUiQL12baG/VIQS8o1U3dGLTN2lFjbkEz+/9SBiTmL7VwIknboSlTaXjCM3s5/qc5T5sLRX2Ol7w00j29aTcdbc4PlPPr1x5grSC4bixycHdDJX/FYgWXcMuba9UyeYNO2qvGdnLUVkyXFmLV5y7j2jM4yulsIFRoW3Gw/UOm/eEK2J/Ab6wT1CWI7cPE5CLcF1Y7qjXVaDXnX/E=
+      secure: QbkNYN/2nsw+AQkxvl1GO+dVLtvX3dqu8fvP/3vU/LyyDYRfu6WtG9yK9mhcTWdQh5fyB+riZ78zFfM8Xz/y68wmhd4DkaIDl03yfgYXeecY1SP6RpIaIIBzvsqKdP0K9G+tda0jBmvfwE/HHAqzXbLa+GTDAWMOsDl2KTdjpsK4uxpGCI4OARuybY/zW/j+ytLuq+CMsvor5kgpKft2lnZBZkAEjOMDzFocazdgvUarBWvrotJzF+WpgVETvX5lO67QLafZvAr103gDIRwfE1/XeGmo8Saptq+96v6sEQ1osI55QVne9NBViqv+30czxypMgmjBbn+Akf43WbiLIClQEm1ckEFlIAmjt7NKsPKB6YEf+sFJSuBq4BDLZkEkr6A9aqv7pTy4ICE/T4Q1b3SMaHwkB2zfZYheSknNNyAt+QGoh1PjPJgj0U704e1jbfD3RQFbEKiDAaek83eRtL0oImSpWPfzvZanDJO0fNxDUrIFMBQmu0MBUrsRu4GmV4HLZp8eE37hi9qmepxCeePZ/DekG31eywhydFPNL8So+n6hSG5wyrjtKxZpyOBUWPwFjHsUtZEa90cCMYnexzjnPWm5b279SoTFu7koyv8xJ7kgacBYeEHxF4VIGUC4IFhdh0zWKgp6f0vd/f4G6cdRq9X1oECf4T1STBcKnKc="
 cache:
   directories:
   - $HOME/.m2
@@ -16,4 +16,4 @@ branches:
   - test
   - dev
 script:
-- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+- ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
