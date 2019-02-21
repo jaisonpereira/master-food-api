@@ -1,24 +1,19 @@
 language: java
 jdk: oraclejdk8
 install: true
-
 addons:
   sonarcloud:
-    organization: "sonarcloud"
+    organization: sonarcloud
     token:
-      secure: "0b116d1709f4fc283aa9c86a605ebaa50fae41f3"
-
-install:
-- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+      secure: pzT03Q/1LMk0/8TMAbWCMrrOJkWQXgcmVWxoRpkhsXPc+lm0mJ6a9XWq+Q5RG+mn4LgWeut/GWIEY9hXVoP7j3dGglyeeRB4vcMFT0CVTJxcFlmonJAg12QjIJENdlW3PgLnpXZ7TmY8MzVl5XiK9h0vbsJarmGJoOOg2s7bNAxUfFTYxIT+d5bwS3iX/T21W/KFshGYnNNo+qkfKPCiXEz/IOBgjc/bM8tL7J4FZkZft0R6MnkBRUfFrxvp5d4e2afWNe37sGTann0KnEbkqGQeXr6Rfyh3MeKqERc+JLPebsi667taEiK11n1xqDUBNDjqAgFwnhqdGMrFjfT5fZ7OLPY9uJ5I1Kz7233vm4A+MsoXkAS9Kout4zjCnrxUgvUVVQdqTIy3zebx2TZ54a92GdChhOqDXRb22Cm14/7sJL/GTyomWxb055ztSfA+HtwlHVeAxfpSS+huZJM51W/ny7kHmDf9bjkIcRSxWii3J8yotRVkLznPVgBDR7OpRB7wvzKaF1kF2sY9nlTdVcfVEEcSBbsFFHMYRR8t/k+mv6+Xbhss7OCDbMi0nFWpmxVr3Pumal5scrBT3iesWEDkdZmqPiOf90xUzlHngURUzz+43kSZhWFHW9Q8cvItjKGfVYWkToNk/sLJ+Zg+iEp/mhZODW6ZngbZ1vxtpQQ=
 cache:
   directories:
   - $HOME/.m2
-  - '$HOME/.sonar/cache'
-  
+  - $HOME/.sonar/cache
 branches:
   only:
   - master
   - test
   - dev
-  
-script: ./mvnw clean install sonar:sonar
+script:
+- ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
