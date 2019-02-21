@@ -1,0 +1,3 @@
+#url de conexao com mongo
+#spring.data.mongodb.uri=mongodb://admin:admin@ds247698.mlab.com:47698/db_delivery
+    

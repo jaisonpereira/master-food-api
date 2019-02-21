@@ -1,0 +1,24 @@
+language: java
+jdk: oraclejdk8
+install: true
+
+addons:
+  sonarcloud:
+    organization: "sonarcloud"
+    token:
+      secure: "0b116d1709f4fc283aa9c86a605ebaa50fae41f3"
+
+install:
+- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+cache:
+  directories:
+  - $HOME/.m2
+  - '$HOME/.sonar/cache'
+  
+branches:
+  only:
+  - master
+  - test
+  - dev
+  
+script: ./mvnw clean install sonar:sonar
