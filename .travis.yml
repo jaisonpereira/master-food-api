@@ -3,9 +3,9 @@ jdk: oraclejdk8
 install: true
 addons:
   sonarcloud:
-    organization: jaisonpereira-github
+    organization: "jaisonpereira-github"
     token:
-      secure: u6mxcmSxwVEhNsTYtTLlabeiiNGT9aM+2Pr8HE7AIifeuoCs0FUmBorsc44hhWjxAcCC/OP5NC9pcF1oGidSE35c8rJnB9IEkemSPQj/CvxAN1wN6A1W/7SOTngbsNT7uRQ8NWPuTvkDqgZSmuCUbIBlJqgL7VRp9aV5H1h892sU/MiuccaMwqhtAxgU+76VlWHehP4lhpxmIIqH4L5Yog7/ds/D8+Xic5e40yc8dEN5bmjiGdEot5QFjHKnr5mLltYJ+8z9HJMafRsz/b6O0FZAFfRxPLyhy1p8zzkDJ08Gx/8dJoEwSX5V6HsWOWcSd2IIuaGQD1hdikM87ZyRTijlYH7oqzup+OxmXOxkIytauy0bUf/mLVc7p1PpT7JYt2PacsdcwoV1Vb+7TsZSJctBkpCAds+W6XhJegeqSm/msS+8a1HfnGXX8TqVqw3s+PcJHdRSvUw6AyQ8FVjlI4BqN4iSx2YVl0u+sIY3CW1BKR0dOww8EcUHvaa008cloGiWHLyZxBVkCNQrIf2tJhK8JpHWKNDAayohVe08WXxp3vVyQpFpfPTrjd8r6Z/o/huVF+ZSm+dMUWOfvaKvcnxykL5YGG+ckQCj1Bke2bt7PI/sHTOeoEBl2FC8TXQrZUmj4eD4KoUV12p5sD49u1v5Fy+iXQHvnwaYD1CgWSQ=
+      secure: "u6mxcmSxwVEhNsTYtTLlabeiiNGT9aM+2Pr8HE7AIifeuoCs0FUmBorsc44hhWjxAcCC/OP5NC9pcF1oGidSE35c8rJnB9IEkemSPQj/CvxAN1wN6A1W/7SOTngbsNT7uRQ8NWPuTvkDqgZSmuCUbIBlJqgL7VRp9aV5H1h892sU/MiuccaMwqhtAxgU+76VlWHehP4lhpxmIIqH4L5Yog7/ds/D8+Xic5e40yc8dEN5bmjiGdEot5QFjHKnr5mLltYJ+8z9HJMafRsz/b6O0FZAFfRxPLyhy1p8zzkDJ08Gx/8dJoEwSX5V6HsWOWcSd2IIuaGQD1hdikM87ZyRTijlYH7oqzup+OxmXOxkIytauy0bUf/mLVc7p1PpT7JYt2PacsdcwoV1Vb+7TsZSJctBkpCAds+W6XhJegeqSm/msS+8a1HfnGXX8TqVqw3s+PcJHdRSvUw6AyQ8FVjlI4BqN4iSx2YVl0u+sIY3CW1BKR0dOww8EcUHvaa008cloGiWHLyZxBVkCNQrIf2tJhK8JpHWKNDAayohVe08WXxp3vVyQpFpfPTrjd8r6Z/o/huVF+ZSm+dMUWOfvaKvcnxykL5YGG+ckQCj1Bke2bt7PI/sHTOeoEBl2FC8TXQrZUmj4eD4KoUV12p5sD49u1v5Fy+iXQHvnwaYD1CgWSQ="
 cache:
   directories:
   - $HOME/.m2
@@ -16,4 +16,4 @@ branches:
   - test
   - dev
 script:
-- ./mvnw clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
+- mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent package sonar:sonar
