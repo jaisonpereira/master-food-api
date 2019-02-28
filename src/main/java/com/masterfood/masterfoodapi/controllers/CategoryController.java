@@ -1,0 +1,26 @@
+package com.masterfood.masterfoodapi.controllers;
+
+import com.masterfood.masterfoodapi.domain.Category;
+import com.masterfood.masterfoodapi.services.CategoryService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping(value = "/categories")
+public class CategoryController {
+
+    CategoryService service;
+
+    public CategoryController(CategoryService service) {
+        this.service = service;
+    }
+
+    @GetMapping
+    public List<Category> findAll() {
+        return service.findAll();
+    }
+
+}
