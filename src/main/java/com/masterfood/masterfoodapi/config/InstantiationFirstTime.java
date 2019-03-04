@@ -1,8 +1,7 @@
 package com.masterfood.masterfoodapi.config;
 
-import com.masterfood.masterfoodapi.domain.Category;
-import com.masterfood.masterfoodapi.domain.enums.CategoryType;
-import com.masterfood.masterfoodapi.repository.CategoryRepository;
+import com.masterfood.masterfoodapi.domain.restaurant.Restaurant;
+import com.masterfood.masterfoodapi.repository.RestaurantRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -12,26 +11,28 @@ import java.util.Arrays;
 @Configuration
 public class InstantiationFirstTime implements CommandLineRunner {
 
-    CategoryRepository repositoryCategory;
+    RestaurantRepository repositoryRestaurant;
 
     @Autowired
-    public InstantiationFirstTime(CategoryRepository repositoryCategory) {
-        this.repositoryCategory = repositoryCategory;
+    public InstantiationFirstTime(RestaurantRepository repositoryRestaurant) {
+        this.repositoryRestaurant = repositoryRestaurant;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        loadCategories();
+        loadRestaurant();
     }
 
-    public void loadCategories() {
-        if (repositoryCategory.findAll()
+    public void loadRestaurant() {
+        if (repositoryRestaurant.findAll()
                 .isEmpty()) {
-            Category category1 = new Category(null, "category 1", CategoryType.COMUN,
-                    "Category 1 for test type: Comun");
-            Category category2 = new Category(null, "category 2", CategoryType.COMUN,
-                    "Category 2 for test type: Comun");
-            repositoryCategory.saveAll(Arrays.asList(category1, category2));
+            Restaurant restaurant1 = new Restaurant();
+            restaurant1.setName("Restaurant 1");
+            restaurant1.setEmail("teste@restaurant1.com");
+            restaurant1.setPriceMinimum(10.1f);
+            restaurant1.setRating(4.6f);
+            restaurant1.setTimeEstimate(40.);
+            repositoryRestaurant.saveAll(Arrays.asList(restaurant1));
         }
     }
 
