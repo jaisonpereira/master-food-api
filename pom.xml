@@ -70,9 +70,15 @@
 			<artifactId>jjwt</artifactId>
 			<version>0.7.0</version>
 		</dependency>
+	<!-- PROJECT INTERNAL -->
 		<dependency>
 			<groupId>com.github.jaisonpereira</groupId>
 			<artifactId>utils-api-labswire</artifactId>
+			<version>1.0.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.wirelabs</groupId>
+			<artifactId>utils-web-labswire</artifactId>
 			<version>1.0.0.0</version>
 		</dependency>
 	</dependencies>
