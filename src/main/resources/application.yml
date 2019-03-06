@@ -2,3 +2,6 @@ spring:
   data:
     mongodb:
       uri: mongodb://admin:sucesso2017@ds147965.mlab.com:47965/master-food-api
+jwt:
+  secret: MasterFoodSucessoDoisMilEDezenove
+  expiration: 86400000

@@ -2,7 +2,7 @@ package com.masterfood.masterfoodapi.services;
 
 import com.masterfood.masterfoodapi.domain.restaurant.Restaurant;
 import com.masterfood.masterfoodapi.repository.RestaurantRepository;
-import com.masterfood.masterfoodapi.services.exceptions.EntityNotFoundException;
+import com.wirelabs.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +23,8 @@ public class RestaurantService {
     }
 
     public Restaurant findById(String id) {
+        // TODO: devera recuperar somente usuarios que forem admin ou que o login esteja
+        // associado com esse restaurant
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "Restaurant not found! Id: " + id + ", Type: " + Restaurant.class.getName()));
