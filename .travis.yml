@@ -6,10 +6,7 @@ addons:
     organization: jaisonpereira-github
     token:
       secure: Pt6iDtMHX6TO+eQZx8477olbojZoUEd914JnAJYuRmim4O+SvqRetpePcLbdBvAUJwIsWYpUh341nfB9Syk9RJbjqEMmZVZd6M9FnQHJCYDus+F9f3mmeKWOUCdFqCMujKoYiEOLmq4ZpcW6KU/KDr8r0ZGYHIccNH9r7Cqrg701G4E6VaFMaGYWNho0g5uVvTopJzK3ld303IlpSkO0StCqRadWmLa6gyHBqUvxq8+PxIrivpG051hJwYTJc6xOExWZUPgv3TCOHKRVZSBEP4hW+yJ/L44iK20EcXUfpMoOXo85EC9dErVdjLHIhe6jVummtzG+uRo4x9N44eq4TBdumpAlOn9EA2OWtCky/SQ9QnTGLn8fuk4E1ZVrDaMY4a+lSvgJJc2FTTB0afC4apjLwgQTovquXKgFFrPO9mRSYE0bZWDeD/Ff4x2n4UBojg0SaUTW83C2rDBRBYoyO4cRLsbuPcuyfncyidfO7p+WU/NqTqbFSQ4ZRahJZCQM3jIAkomgwCcpWqIk7gDAFJinNRmLDiMV7kOfo+IjDXgOdsBgxFY8wVnL9zcm6jwDhhA4aBSvWw+a75qcNLKphe3reI46GhAK0c8/20BAmDqgpOELnZ9PcPAC75jKMcqF/tw9VIcwXTSa54x033fw4YCvsmJ81fWMyIzu2ux+Ru4=
-cache:
-  directories:
-  - $HOME/.m2
-  - $HOME/.sonar/cache
+
 branches:
   only:
   - master
