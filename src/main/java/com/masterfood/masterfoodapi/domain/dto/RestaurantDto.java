@@ -23,9 +23,14 @@ public class RestaurantDto implements Serializable {
     private static final long serialVersionUID = 2783865037302789407L;
 
     private String id;
-    @NotEmpty(message = "name is required")
+    // nome fantasia
+    @NotEmpty(message = "tradingName is required")
     @Length(min = 3, max = 80, message = "the name lenght must between 3 until 80")
-    private String name;
+    private String tradingName;
+    // razaoSocial
+    @NotEmpty(message = "companyName is required")
+    @Length(min = 3, max = 80, message = "the name lenght must between 3 until 80")
+    private String companyName;
     private Address address;
     @Email(message = "Email invalid")
     private String email;

@@ -22,7 +22,9 @@ public class Restaurant implements Serializable {
     @Id
     private String id;
     @Indexed
-    private String name;
+    private String tradingName; // nome fantasia
+    @Indexed
+    private String companyName; // razaoSocial
     @Indexed
     private Address address;
     private String email;

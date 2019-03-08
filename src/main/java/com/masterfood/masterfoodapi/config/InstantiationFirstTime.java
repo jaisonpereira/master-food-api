@@ -37,7 +37,8 @@ public class InstantiationFirstTime implements CommandLineRunner {
         if (repositoryRestaurant.findAll()
                 .isEmpty()) {
             Restaurant restaurant1 = new Restaurant();
-            restaurant1.setName("Restaurant 1");
+            restaurant1.setTradingName("Restaurant1 sucesso - nome fantasia");
+            restaurant1.setCompanyName("restaurant 1 razao social");
             restaurant1.setEmail("teste@restaurant1.com");
             restaurant1.setPriceMinimum(10.1f);
             restaurant1.setRating(4.6f);
