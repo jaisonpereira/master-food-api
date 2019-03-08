@@ -1,5 +1,6 @@
 package com.masterfood.masterfoodapi.security;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.masterfood.masterfoodapi.domain.enums.PerfilType;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
@@ -16,7 +17,9 @@ public class UserSecurity implements UserDetails {
 
     @Getter
     private String id;
+    @Getter
     private String email;
+    @JsonIgnore
     private String password;
     private Collection<GrantedAuthority> authorities;
     @Getter
@@ -69,21 +72,25 @@ public class UserSecurity implements UserDetails {
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isAccountNonLocked() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isCredentialsNonExpired() {
         return true;
     }
 
     @Override
+    @JsonIgnore
     public boolean isEnabled() {
         return true;
     }

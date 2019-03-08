@@ -11,7 +11,6 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,14 +52,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             FilterChain chain,
                                             Authentication auth)
             throws IOException, ServletException {
-
         UserSecurity user = ((UserSecurity) auth.getPrincipal());
         String token = jwtUtil.generateToken(user.getUsername());
         res.addHeader("Authorization", "Bearer " + token);
+        res.addHeader("Content-Type", "application/json");
         res.addHeader("access-control-expose-headers", "Authorization");
-        PrintWriter out = res.getWriter();
-        out.print(user);
-        out.flush();
+        res.getWriter()
+                .append(new ObjectMapper().writeValueAsString(user));
     }
 
     private class JWTAuthenticationFailureHandler implements AuthenticationFailureHandler {
@@ -73,13 +71,14 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             response.setStatus(401);
             response.setContentType("application/json");
             response.getWriter()
-                    .append(json());
+                    .append(errorJson());
         }
 
-        private String json() {
+        private String errorJson() {
             long date = new Date().getTime();
             return "{\"timestamp\": " + date + ", " + "\"status\": 401, " + "\"error\": \"Not authorized\", " +
                     "\"message\": \"Email or password invalid\", " + "\"path\": \"/login\"}";
         }
+
     }
 }
