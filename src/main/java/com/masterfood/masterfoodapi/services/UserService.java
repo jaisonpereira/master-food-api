@@ -2,6 +2,7 @@ package com.masterfood.masterfoodapi.services;
 
 import com.masterfood.masterfoodapi.domain.User;
 import com.masterfood.masterfoodapi.domain.enums.PerfilType;
+import com.masterfood.masterfoodapi.domain.restaurant.Restaurant;
 import com.masterfood.masterfoodapi.repository.UserRepository;
 import com.masterfood.masterfoodapi.security.UserSecurity;
 import com.wirelabs.exceptions.AuthorizationException;
@@ -28,7 +29,20 @@ public class UserService {
                     .getAuthentication()
                     .getPrincipal();
         } catch (Exception e) {
-            return null;
+            throw new AuthorizationException("Authenticated user not found ", e);
+        }
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        User user = findById(authenticated().getId());
+        user.setRestaurant(restaurant);
+    }
+
+    public void hasAccess(String id) {
+        UserSecurity user = authenticated();
+        if (user == null ||
+                (!user.hasRole(PerfilType.ADMIN) && !user.hasRole(PerfilType.ROOT)) && !id.equals(user.getId())) {
+            throw new AuthorizationException("Access Denied");
         }
     }
 
@@ -37,13 +51,7 @@ public class UserService {
     }
 
     public User findById(String id) {
-
-        UserSecurity user = authenticated();
-
-        if (user == null || !user.hasRole(PerfilType.ADMIN) && !id.equals(user.getId())) {
-            throw new AuthorizationException("Access Denied");
-        }
-
+        hasAccess(id);
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "User not found! Id: " + id + ", Type: " + User.class.getName()));

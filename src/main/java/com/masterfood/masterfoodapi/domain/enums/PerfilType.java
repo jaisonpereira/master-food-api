@@ -2,7 +2,7 @@ package com.masterfood.masterfoodapi.domain.enums;
 
 public enum PerfilType {
 
-    ADMIN(1, "ROLE_ADMIN"), CLIENT(2, "ROLE_CLIENT");
+    ROOT(1, "ROLE_ROOT"), CLIENT(2, "ROLE_CLIENT"), ADMIN(3, "ROLE_ADMIN"), CUSTOMERS(4, "ROLE_CUSTOMERS");
 
     private int cod;
     private String descricao;

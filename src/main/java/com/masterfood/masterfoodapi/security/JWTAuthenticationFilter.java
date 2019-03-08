@@ -11,6 +11,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -53,10 +54,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             Authentication auth)
             throws IOException, ServletException {
 
-        String username = ((UserSecurity) auth.getPrincipal()).getUsername();
-        String token = jwtUtil.generateToken(username);
+        UserSecurity user = ((UserSecurity) auth.getPrincipal());
+        String token = jwtUtil.generateToken(user.getUsername());
         res.addHeader("Authorization", "Bearer " + token);
         res.addHeader("access-control-expose-headers", "Authorization");
+        PrintWriter out = res.getWriter();
+        out.print(user);
+        out.flush();
     }
 
     private class JWTAuthenticationFailureHandler implements AuthenticationFailureHandler {

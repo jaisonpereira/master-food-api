@@ -19,28 +19,43 @@ public class UserSecurity implements UserDetails {
     private String email;
     private String password;
     private Collection<GrantedAuthority> authorities;
+    @Getter
+    private String restaurantId;
 
     public UserSecurity() {
     }
 
-    public UserSecurity(String id, String email, String password, Set<PerfilType> perfis) {
+    public UserSecurity(String id, String email, String password, Set<PerfilType> perfis, String restaurantId) {
         super();
         this.id = id;
         this.email = email;
         this.password = password;
+        this.restaurantId = restaurantId;
         if (perfis != null) {
             this.authorities = perfis.stream()
                     .map(x -> new SimpleGrantedAuthority(x.getDescricao()))
                     .collect(Collectors.toList());
         } else {
             this.authorities = new ArrayList<>();
-            this.authorities.add(new SimpleGrantedAuthority(PerfilType.CLIENT.getDescricao()));
+            this.authorities.add(new SimpleGrantedAuthority(PerfilType.CUSTOMERS.getDescricao()));
         }
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
+    }
+
+    public boolean allowedToFindRestaurant() {
+        for (GrantedAuthority e : authorities) {
+            if (e.getAuthority()
+                    .equals(PerfilType.ROOT.getDescricao()) ||
+                    e.getAuthority()
+                            .equals(PerfilType.CUSTOMERS.getDescricao())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
