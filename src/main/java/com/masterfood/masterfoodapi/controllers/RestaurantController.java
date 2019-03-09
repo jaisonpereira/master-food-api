@@ -50,7 +50,7 @@ public class RestaurantController {
     @ApiOperation(value = "Find by id restaurants, requires perfil with admin role")
     @ApiResponse(code = 404, message = "Restaurant not found")
     @PostMapping()
-    public ResponseEntity<Restaurant> saveRestaurant(@Valid @RequestBody RestaurantDto dto) {
+    public ResponseEntity<Restaurant> save(@Valid @RequestBody RestaurantDto dto) {
         Restaurant restaurant = service.save(service.fromDto(dto));
         URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")

@@ -13,6 +13,7 @@ import java.util.List;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Data
 @AllArgsConstructor
@@ -25,17 +26,19 @@ public class RestaurantDto implements Serializable {
     private String id;
     // nome fantasia
     @NotEmpty(message = "tradingName is required")
-    @Length(min = 3, max = 80, message = "the name lenght must between 3 until 80")
+    @Length(min = 3, max = 80, message = "the tradingName lenght must between 3 until 80")
     private String tradingName;
     // razaoSocial
     @NotEmpty(message = "companyName is required")
-    @Length(min = 3, max = 80, message = "the name lenght must between 3 until 80")
+    @Length(min = 3, max = 80, message = "the companyName lenght must between 3 until 80")
     private String companyName;
     private Address address;
     @Email(message = "Email invalid")
     private String email;
-    private String describe;
-    @NotEmpty(message = "time estimate is required")
+    @NotEmpty(message = "description is required")
+    @Length(min = 3, max = 80, message = "the description lenght must between 3 until 80")
+    private String description;
+    @NotNull(message = "time estimate is required")
     private Double timeEstimate;
     private Float priceMinimum;
     private Float rating;

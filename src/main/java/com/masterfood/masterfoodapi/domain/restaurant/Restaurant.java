@@ -28,7 +28,7 @@ public class Restaurant implements Serializable {
     @Indexed
     private Address address;
     private String email;
-    private String describe;
+    private String description;
     private Double timeEstimate;
     private Float priceMinimum;
     private Float rating;

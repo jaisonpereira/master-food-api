@@ -36,6 +36,7 @@ public class UserService {
     public void setRestaurant(Restaurant restaurant) {
         User user = findById(authenticated().getId());
         user.setRestaurant(restaurant);
+        repository.save(user);
     }
 
     public void hasAccess(String id) {
