@@ -22,7 +22,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
             throw new UsernameNotFoundException(email);
         }
 
-        return new UserSecurity(user.getId(), user.getEmail(), user.getPassword(), user.getPerfis(),
+        return new UserSecurity(user.getId(), user.getEmail(), user.getPassword(), user.getPerfis(), user.getName(),
                 user.getRestaurant() != null
                         ? user.getRestaurant()
                                 .getId()

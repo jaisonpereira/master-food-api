@@ -36,6 +36,10 @@ public class RestaurantService {
         return repository.findAll();
     }
 
+    public Restaurant save(RestaurantDto dto) {
+        return save(fromDto(dto));
+    }
+
     public Restaurant save(Restaurant rest) {
         boolean insert = (rest.getId() == null);
         if (!insert) {

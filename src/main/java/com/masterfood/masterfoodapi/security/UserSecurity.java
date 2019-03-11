@@ -19,6 +19,8 @@ public class UserSecurity implements UserDetails {
     private String id;
     @Getter
     private String email;
+    @Getter
+    private String name;
     @JsonIgnore
     private String password;
     private Collection<GrantedAuthority> authorities;
@@ -28,12 +30,14 @@ public class UserSecurity implements UserDetails {
     public UserSecurity() {
     }
 
-    public UserSecurity(String id, String email, String password, Set<PerfilType> perfis, String restaurantId) {
+    public UserSecurity(String id, String email, String password, Set<PerfilType> perfis, String name,
+            String restaurantId) {
         super();
         this.id = id;
         this.email = email;
         this.password = password;
         this.restaurantId = restaurantId;
+        this.name = name;
         if (perfis != null) {
             this.authorities = perfis.stream()
                     .map(x -> new SimpleGrantedAuthority(x.getDescricao()))

@@ -31,7 +31,7 @@ public class RestaurantSaveValidator implements ConstraintValidator<RestaurantSa
         if (aux != null && !aux.isEmpty() && !aux.get(0)
                 .getId()
                 .equals(objDto.getId())) {
-            list.add(new FieldMessage("email", "Email already exists"));
+            list.add(new FieldMessage("restaurant.email.already", "Email already exists"));
         }
 
         for (FieldMessage e : list) {

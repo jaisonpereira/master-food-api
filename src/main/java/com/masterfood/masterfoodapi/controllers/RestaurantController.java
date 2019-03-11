@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -51,13 +49,7 @@ public class RestaurantController {
     @ApiResponse(code = 404, message = "Restaurant not found")
     @PostMapping()
     public ResponseEntity<Restaurant> save(@Valid @RequestBody RestaurantDto dto) {
-        Restaurant restaurant = service.save(service.fromDto(dto));
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest()
-                .path("/{id}")
-                .buildAndExpand(restaurant.getId())
-                .toUri();
-        return ResponseEntity.created(uri)
-                .build();
+        return ResponseEntity.ok(service.save(dto));
     }
 
 }
