@@ -25,20 +25,20 @@ public class RestaurantDto implements Serializable {
 
     private String id;
     // nome fantasia
-    @NotEmpty(message = "tradingName is required")
+    @NotEmpty(message = "restaurant.required.tradingName")
     @Length(min = 3, max = 80, message = "the tradingName lenght must between 3 until 80")
     private String tradingName;
     // razaoSocial
-    @NotEmpty(message = "companyName is required")
+    @NotEmpty(message = "restaurant.required.companyName")
     @Length(min = 3, max = 80, message = "the companyName lenght must between 3 until 80")
     private String companyName;
     private Address address;
-    @Email(message = "Email invalid")
+    @Email(message = "restaurant.email.invalid")
     private String email;
-    @NotEmpty(message = "description is required")
+    @NotEmpty(message = "restaurant.required.description")
     @Length(min = 3, max = 80, message = "the description lenght must between 3 until 80")
     private String description;
-    @NotNull(message = "time estimate is required")
+    @NotNull(message = "restaurant.required.timeEstimate")
     private Double timeEstimate;
     private Float priceMinimum;
     private Float rating;
