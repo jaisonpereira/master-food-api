@@ -3,7 +3,9 @@ package com.masterfood.masterfoodapi.services;
 import com.masterfood.masterfoodapi.domain.User;
 import com.masterfood.masterfoodapi.repository.UserRepository;
 import com.wirelabs.exceptions.EntityNotFoundException;
+import com.wirelabs.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -12,28 +14,36 @@ import java.util.Random;
 @Service
 public class AuthService {
 
-    @Autowired
+    @Value("${default.sender}")
+    private String sender;
+
     private UserRepository repositoryUser;
 
-    @Autowired
     private BCryptPasswordEncoder pe;
 
-    // private EmailService emailService;
+    private EmailService emailService;
 
     private Random rand = new Random();
 
+    @Autowired
+    public AuthService(UserRepository repositoryUser, BCryptPasswordEncoder pe, EmailService emailService) {
+        this.repositoryUser = repositoryUser;
+        this.pe = pe;
+        this.emailService = emailService;
+    }
+
     public void sendNewPassword(String email) {
 
-        User cliente = repositoryUser.findByEmail(email);
-        if (cliente == null) {
+        User user = repositoryUser.findByEmail(email);
+        if (user == null) {
             throw new EntityNotFoundException("User not found");
         }
 
         String newPass = newPassword();
-        cliente.setPassword(pe.encode(newPass));
+        user.setPassword(pe.encode(newPass));
 
-        repositoryUser.save(cliente);
-        // emailService.sendNewPasswordEmail(cliente, newPass);
+        repositoryUser.save(user);
+        emailService.sendNewPasswordEmail(user.getEmail(), newPass);
     }
 
     private String newPassword() {

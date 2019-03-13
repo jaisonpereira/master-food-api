@@ -33,7 +33,7 @@ public class RestaurantDto implements Serializable {
     @Length(min = 3, max = 80, message = "the companyName lenght must between 3 until 80")
     private String companyName;
     private Address address;
-    @Email(message = "restaurant.email.invalid")
+    @Email(message = "basic.email.invalid")
     private String email;
     @NotEmpty(message = "restaurant.required.description")
     @Length(min = 3, max = 80, message = "the description lenght must between 3 until 80")

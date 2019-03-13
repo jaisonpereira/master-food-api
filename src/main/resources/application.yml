@@ -1,7 +1,30 @@
 spring:
+  profiles:
+    active: prod
   data:
     mongodb:
       uri: mongodb://admin:sucesso2017@ds147965.mlab.com:47965/master-food-api
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: labswire@gmail.com
+    password: sucesso2017
+    protocol: smtp
+    tls: true
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
 jwt:
   secret: MasterFoodSucessoDoisMilEDezenove
   expiration: 86400000
+default:
+  sender: labswire@gmail.com
+  receiver: labswire@gmail.com
+logging:
+  level:
+    ROOT: DEBUG
+    org.springframework: ERROR
+    org.springframework.data: ERROR
+    org.mongodb: ERROR
+  file: /api-master-food.log

@@ -56,6 +56,12 @@ public class InstantiationFirstTime implements CommandLineRunner {
             user1.addPerfil(PerfilType.ADMIN);
             user1.setPassword(encoderPass.encode("admin"));
 
+            User labsUser = new User();
+            labsUser.setEmail("labswire@gmail.com");
+            labsUser.setName("admin");
+            labsUser.addPerfil(PerfilType.ROOT);
+            labsUser.setPassword(encoderPass.encode("admin"));
+
             User user3 = new User();
             user3.setEmail("root@root");
             user3.setName("root");
@@ -68,7 +74,7 @@ public class InstantiationFirstTime implements CommandLineRunner {
             user2.addPerfil(PerfilType.CLIENT);
             user2.setPassword(encoderPass.encode("client"));
 
-            repositoryUser.saveAll(Arrays.asList(user1, user2, user3));
+            repositoryUser.saveAll(Arrays.asList(labsUser, user2, user3));
         }
     }
 
