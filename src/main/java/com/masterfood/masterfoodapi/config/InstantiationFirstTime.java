@@ -15,6 +15,8 @@ import java.util.Arrays;
 @Configuration
 public class InstantiationFirstTime implements CommandLineRunner {
 
+    private static final String ADMIN = "admin";
+
     RestaurantRepository repositoryRestaurant;
     UserRepository repositoryUser;
     BCryptPasswordEncoder encoderPass;
@@ -52,15 +54,15 @@ public class InstantiationFirstTime implements CommandLineRunner {
                 .isEmpty()) {
             User user1 = new User();
             user1.setEmail("admin@admin");
-            user1.setName("admin");
+            user1.setName(ADMIN);
             user1.addPerfil(PerfilType.ADMIN);
-            user1.setPassword(encoderPass.encode("admin"));
+            user1.setPassword(encoderPass.encode(ADMIN));
 
             User labsUser = new User();
             labsUser.setEmail("labswire@gmail.com");
-            labsUser.setName("admin");
+            labsUser.setName("labs");
             labsUser.addPerfil(PerfilType.ROOT);
-            labsUser.setPassword(encoderPass.encode("admin"));
+            labsUser.setPassword(encoderPass.encode(ADMIN));
 
             User user3 = new User();
             user3.setEmail("root@root");
@@ -74,7 +76,7 @@ public class InstantiationFirstTime implements CommandLineRunner {
             user2.addPerfil(PerfilType.CLIENT);
             user2.setPassword(encoderPass.encode("client"));
 
-            repositoryUser.saveAll(Arrays.asList(labsUser, user2, user3));
+            repositoryUser.saveAll(Arrays.asList(labsUser, user1, user2, user3));
         }
     }
 
