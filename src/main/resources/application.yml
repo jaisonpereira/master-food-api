@@ -23,7 +23,8 @@ default:
   receiver: labswire@gmail.com
 logging:
   level:
-    ROOT: DEBUG
+    ROOT: ERROR
+    com.masterfood.masterfoodapi: DEBUG
     org.springframework: ERROR
     org.springframework.data: ERROR
     org.mongodb: ERROR
