@@ -3,6 +3,7 @@ package com.masterfood.masterfoodapi.security;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.masterfood.masterfoodapi.domain.dto.CredentialsDto;
 import com.wirelabs.security.JWTUtil;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -42,7 +43,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
             return authenticationManager.authenticate(authToken);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            throw new AuthenticationCredentialsNotFoundException("Error on authentication jwt", e);
         }
     }
 
