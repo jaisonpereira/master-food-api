@@ -4,7 +4,7 @@ import lombok.Getter;
 
 public enum CategoryType {
 
-    COMUN(1), PIZZA(2);
+    DEFAULT(1), PIZZA(2);
 
     @Getter
     private Integer tipo;

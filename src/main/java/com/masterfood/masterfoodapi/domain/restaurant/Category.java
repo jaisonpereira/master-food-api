@@ -15,7 +15,8 @@ public class Category implements Serializable {
 
     private String name;
     private CategoryType categoryType;
-    private String descricao;
     private List<Product> products;
+    private Integer ordination;
+    private boolean active;
 
 }

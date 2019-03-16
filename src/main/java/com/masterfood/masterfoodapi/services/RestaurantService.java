@@ -61,7 +61,8 @@ public class RestaurantService {
 
     public Restaurant fromDto(RestaurantDto dto) {
         return new Restaurant(dto.getId(), dto.getTradingName(), dto.getCompanyName(), dto.getAddress(), dto.getEmail(),
-                dto.getEmail(), dto.getTimeEstimate(), dto.getPriceMinimum(), dto.getRating(), dto.getMenu());
+                dto.getEmail(), dto.getTimeEstimate(), dto.getPriceMinimum(), dto.getRating(), dto.getMenu(),
+                dto.getSyncDate());
     }
 
 }

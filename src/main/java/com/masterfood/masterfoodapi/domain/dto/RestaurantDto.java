@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.validation.constraints.Email;
@@ -43,5 +44,6 @@ public class RestaurantDto implements Serializable {
     private Float priceMinimum;
     private Float rating;
     private List<Category> menu;
+    private LocalDateTime syncDate;
 
 }
