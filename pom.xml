@@ -80,6 +80,11 @@
 			<artifactId>utils-web-labswire</artifactId>
 			<version>1.0.0.3</version>
 		</dependency>
+		<dependency>
+			<groupId>com.github.jaisonpereira</groupId>
+			<artifactId>utils-common-labswire</artifactId>
+			<version>1.0.0.0</version>
+		</dependency>
 	</dependencies>
 	<repositories>
 		<repository>

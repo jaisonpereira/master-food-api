@@ -3,6 +3,7 @@ package com.masterfood.masterfoodapi.controllers;
 import com.masterfood.masterfoodapi.domain.dto.RestaurantDto;
 import com.masterfood.masterfoodapi.domain.restaurant.Restaurant;
 import com.masterfood.masterfoodapi.services.RestaurantService;
+import com.wirelabs.common.BaseControllerWeb;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping(value = "/restaurants")
-public class RestaurantController {
+public class RestaurantController extends BaseControllerWeb {
 
     private RestaurantService service;
 
@@ -44,7 +45,7 @@ public class RestaurantController {
         return ResponseEntity.ok(service.findById(id));
     }
 
-    @PreAuthorize("hasAnyRole('ADMIN','ROOT')")
+    @PreAuthorize("hasAnyRole(" + GROUP_ADMIN + ")")
     @ApiOperation(value = "Find by id restaurants, requires perfil with admin role")
     @ApiResponse(code = 404, message = "Restaurant not found")
     @PostMapping()
