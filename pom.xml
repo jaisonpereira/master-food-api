@@ -83,7 +83,7 @@
 		<dependency>
 			<groupId>com.github.jaisonpereira</groupId>
 			<artifactId>utils-common-labswire</artifactId>
-			<version>1.0.0.0</version>
+			<version>1.0.0.1</version>
 		</dependency>
 	</dependencies>
 	<repositories>
