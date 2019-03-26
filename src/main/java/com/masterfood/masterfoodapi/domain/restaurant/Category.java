@@ -2,6 +2,7 @@ package com.masterfood.masterfoodapi.domain.restaurant;
 
 import com.masterfood.masterfoodapi.domain.BaseProductControl;
 import com.masterfood.masterfoodapi.domain.enums.CategoryType;
+import com.wirelabs.common.utils.LengthControl;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,10 @@ import javax.validation.constraints.NotEmpty;
 public class Category extends BaseProductControl implements Serializable {
 
     private static final long serialVersionUID = -555849179487885922L;
-
     @NotEmpty(message = "restaurant.required.categoryName")
-    @Length(min = 3, max = 55, message = "the category name lenght must between 3 until 55")
+    @Length(min = LengthControl.NAME_MIN_LENGTH,
+            max = LengthControl.NAME_MAX_LENGTH,
+            message = "product" + LengthControl.NAME_DEFAULT_MESSAGE)
     private String name;
     private Integer categoryType;
     private List<Product> products;
