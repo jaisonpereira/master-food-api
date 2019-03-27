@@ -3,6 +3,7 @@ package com.masterfood.masterfoodapi.security;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.masterfood.masterfoodapi.domain.enums.PerfilType;
 import lombok.Getter;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,6 +27,9 @@ public class UserSecurity implements UserDetails {
     private Collection<GrantedAuthority> authorities;
     @Getter
     private String restaurantId;
+    @Getter
+    @Setter
+    private String token;
 
     public UserSecurity() {
     }
