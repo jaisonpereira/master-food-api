@@ -7,4 +7,5 @@ Exec="/opt/sts/STS"
 Icon=/opt/sts/icon.xpm
 StartupNotify=true
 Categories=Development;IDE;
-~                            
+# sudo cp sts.desktop /usr/share/applications/
+                            

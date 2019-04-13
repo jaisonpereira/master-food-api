@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     };
 
     private static final String[] PUBLIC_MATCHERS_GET = {
-            "/states/**", "/restaurants/**"
+            "/states/**", "/restaurants/**", "/menu/**"
     };
 
     private static final String[] PUBLIC_MATCHERS_POST = {
