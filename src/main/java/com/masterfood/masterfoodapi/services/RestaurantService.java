@@ -53,7 +53,6 @@ public class RestaurantService {
     }
 
     public Restaurant findById(String id) {
-        allowedUserResource(id);
         return repository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(
                         "Restaurant not found! Id: " + id + ", Type: " + Restaurant.class.getName()));
